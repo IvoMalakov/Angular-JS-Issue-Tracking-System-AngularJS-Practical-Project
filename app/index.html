@@ -8,10 +8,34 @@
     <link type="text/css" rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<header>
+    <h1>Welcome to Issue Tracking System</h1>
+</header>
+<div class="navbar navbar-header navbar-fixed-center">
+    <div class="container">
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul ng-if="isAuthenticated" class="nav navbar-nav">
+                <li>
+                    <a href="#/login">Login</a>
+                </li>
+                <li>
+                    <a href="#/register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div ng-view />
+</div>
+
+<script type="text/javascript" src="libs/jquery/jquery.js"></script>
 <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="libs/angular/angular.js"></script>
 <script type="text/javascript" src="libs/angular/angular-route.js"></script>
 <script type="text/javascript" src="libs/angular/angular-resource.js"></script>
+
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
