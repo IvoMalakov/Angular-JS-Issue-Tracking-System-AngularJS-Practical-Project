@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="issueTrackerSystem">
 <head>
     <meta charset="UTF-8">
     <title>Issue Tracking System – AngularJS Practical Project</title>
@@ -11,23 +11,20 @@
 <header>
     <h1>Welcome to Issue Tracking System</h1>
 </header>
-<div class="navbar navbar-header navbar-fixed-center">
-    <div class="container">
-        <div class="navbar-collapse collapse" id="navbar-main">
-            <ul ng-if="isAuthenticated" class="nav navbar-nav">
-                <li>
-                    <a href="#/login">Login</a>
-                </li>
-                <li>
-                    <a href="#/register">Register</a>
-                </li>
-            </ul>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Issue Tracking System</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/register">Register</a></li>
+        </ul>
     </div>
-</div>
+</nav>
 
 <div class="container">
-    <div ng-view />
+    <div ng-view></div>
 </div>
 
 <script type="text/javascript" src="libs/jquery/jquery.js"></script>
@@ -37,5 +34,6 @@
 <script type="text/javascript" src="libs/angular/angular-resource.js"></script>
 
 <script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/home-controller.js"></script>
 </body>
 </html>
