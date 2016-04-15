@@ -1,1 +1,28 @@
-<p>Login</p>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 border">
+        <form name="loginUserForm" class="form">
+            <label for="loginEmail">Email</label>
+            <input type="email"
+                   ng-model="loginUser.email"
+                   id="loginEmail"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="Email" />
+
+            <label for="loginPassword">Password</label>
+            <input type="password"
+                   ng-model="loginUser.password"
+                   id="loginPassword"
+                   class="form-control form-group"
+                   required="required"
+                   pattern=".{6,100}"
+                   placeholder="Password" />
+
+            <br/>
+            <button type="submit"
+                    class="btn btn-primary"
+                    ng-disabled="registerUserForm.$invalid"
+                    ng-click="login(loginUser)">Login</button>
+        </form>
+    </div>
+</div>
