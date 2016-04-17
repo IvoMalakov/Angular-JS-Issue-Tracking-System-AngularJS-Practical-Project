@@ -3,7 +3,7 @@
         <form name="loginUserForm" class="form">
             <label for="loginEmail">Email</label>
             <input type="email"
-                   ng-model="loginUser.email"
+                   ng-model="loginUser.userEmail"
                    id="loginEmail"
                    class="form-control form-group"
                    required="required"
@@ -11,7 +11,7 @@
 
             <label for="loginPassword">Password</label>
             <input type="password"
-                   ng-model="loginUser.password"
+                   ng-model="loginUser.userPassword"
                    id="loginPassword"
                    class="form-control form-group"
                    required="required"
@@ -21,7 +21,7 @@
             <br/>
             <button type="submit"
                     class="btn btn-primary"
-                    ng-disabled="registerUserForm.$invalid"
+                    ng-disabled="loginUserForm.$invalid"
                     ng-click="login(loginUser)">Login</button>
         </form>
     </div>

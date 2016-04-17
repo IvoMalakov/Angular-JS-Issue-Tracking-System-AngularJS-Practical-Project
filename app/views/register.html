@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-4 col-md-offset-1 border">
-        <form name="registerForm" class="form">
+        <form name="registerUserForm" class="form">
             <label for="registerEmail">Email</label>
             <input type="email"
-                   ng-model="registerUser.email"
+                   ng-model="registerUser.userEmail"
                    id="registerEmail"
                    class="form-control form-group"
                    required="required"
@@ -11,7 +11,7 @@
 
             <label for="registerPassword">Password</label>
             <input type="password"
-                   ng-model="registerUser.password"
+                   ng-model="registerUser.userPassword"
                    id="registerPassword"
                    class="form-control form-group"
                    required="required"
@@ -20,7 +20,7 @@
 
             <label for="registerConfirmPassword">Confirm Password</label>
             <input type="password"
-                   ng-model="registerUser.confirmPassword"
+                   ng-model="registerUser.userConfirmPassword"
                    id="registerConfirmPassword"
                    class="form-control form-group"
                    pattern=".{6,100}"
@@ -30,7 +30,7 @@
             <br />
             <button type="submit"
                     class="btn btn-primary"
-                    ng-disabled="registerUserForm.$invalid ||  registerUser.password!=registerUser.confirmPassword"
+                    ng-disabled="registerUserForm.$invalid || registerUser.userPassword!=registerUser.userConfirmPassword"
                     ng-click="register(registerUser)">Register</button>
         </form>
     </div>

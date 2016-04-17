@@ -15,4 +15,4 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
         .otherwise({redirectTo: '/'})
 }]);
 
-issueTrackerSystem.constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net');
+issueTrackerSystem.constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
