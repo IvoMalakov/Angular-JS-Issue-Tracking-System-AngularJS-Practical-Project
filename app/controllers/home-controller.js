@@ -24,7 +24,7 @@ issueTrackerSystem.controller('HomeController', [
                 });
         };
 
-        $scope.login = function(user) {
+        $scope.login = function login(user) {
             authenticationService.loginUser(user)
                 .then(function(loggedInUser) {
                     notificationService.showInfo('Logged successful');
@@ -37,7 +37,7 @@ issueTrackerSystem.controller('HomeController', [
                 });
         };
 
-        $scope.register = function(user) {
+        $scope.register = function register(user) {
             authenticationService.registerUser(user)
                 .then(function(loggedInUser) {
                     notificationService.showInfo('Logged successful');
@@ -49,16 +49,4 @@ issueTrackerSystem.controller('HomeController', [
                     notificationService.showError('Request failed' + error.statusText);
                 });
         };
-
-        $scope.logout = function() {
-            userService.logOut()
-                .then(function() {
-                    notificationService.showInfo('Logout successfully');
-                    sessionStorage.clear();
-                    $location.path('/');
-
-                }, function(error) {
-                    notificationService.showError('Request failed' + error.statusText);
-                })
-        }
 }]);

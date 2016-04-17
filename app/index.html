@@ -9,19 +9,8 @@
 </head>
 <body>
 <header>
-    <h1>Welcome to Issue Tracking System</h1>
+    <h1>Welcome to our Issue Tracking System</h1>
 </header>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Issue Tracking System</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="#/login">Login</a></li>
-            <li><a href="#/register">Register</a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="container">
     <div ng-view></div>
@@ -36,8 +25,12 @@
 
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="controllers/home-controller.js"></script>
+<script type="text/javascript" src="controllers/user-controller.js"></script>
+<script type="text/javascript" src="controllers/common-controller.js"></script>
+<script type="text/javascript" src="controllers/dashboard-controller.js"></script>
 <script type="text/javascript" src="services/authentication-service.js"></script>
 <script type="text/javascript" src="services/notification-service.js"></script>
 <script type="text/javascript" src="services/user-service.js"></script>
+<script type="text/javascript" src="directives/profile-directive.js"></script>
 </body>
 </html>
