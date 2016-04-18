@@ -1,6 +1,15 @@
 <h2>Thank you for using our system. We wish you a good day!</h2>
-<div><p>Press <span class="text-danger">"Logout"</span> key if you want to leave</p></div>
+
+<div>
+    <p>Press <span class="text-danger">"Logout"</span> key if you want to leave</p>
+</div>
+
+<div>
+    <p>Press <span class="text-primary">"Back"</span> key if you want to go back to your Dashboard</p>
+</div>
+
 <div profileDirective></div>
 <div class="logout">
     <button type = "submit" class=" btn btn-danger" ng-click="logout()">Logout</button>
+    <button type = "submit"  id="logoutBackBtn" class=" btn btn-primary" ng-click="logOutBack()">Back</button>
 </div>

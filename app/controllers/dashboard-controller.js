@@ -7,7 +7,8 @@ issueTrackerSystem.controller('DashboardController', [
     'notificationService',
     'userService',
     'projectService',
-    function($scope, $location, authenticationService, notificationService, userService, projectService) {
+    'issueService',
+    function($scope, $location, authenticationService, notificationService, userService, projectService, issueService) {
 
         $scope.myStaff = function(item) {
             return item.Lead.userName === sessionStorage['userName'];
@@ -22,7 +23,7 @@ issueTrackerSystem.controller('DashboardController', [
                     inputArraySize = inputArray.length,
                     i;
 
-                for(i = 0; i < inputArraySize; ++i) {
+                for(i = 0; i < inputArraySize; i++) {
                     outputArrayAsJson.push({'Name' : inputArray[i]});
                 }
 

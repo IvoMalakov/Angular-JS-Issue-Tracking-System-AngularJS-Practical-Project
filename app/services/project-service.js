@@ -13,7 +13,7 @@ issueTrackerSystem.factory('projectService',[
                     method: 'GET',
                     url: BASE_URL + 'projects',
                     headers: {
-                        Authorization: 'Bearer' + sessionStorage['token']
+                        Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
 
@@ -34,7 +34,7 @@ issueTrackerSystem.factory('projectService',[
                     method: 'GET',
                     url: BASE_URL + 'Projects/' + id,
                     headers: {
-                        Authorization: 'Bearer' + sessionStorage['token']
+                        Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
 
@@ -63,7 +63,7 @@ issueTrackerSystem.factory('projectService',[
                         'LeadId' : project.LeadId
                     },
                     headers: {
-                        Authorization: 'Bearer' + sessionStorage['token']
+                        Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
 
@@ -112,7 +112,7 @@ issueTrackerSystem.factory('projectService',[
                     method: 'GET',
                     url: BASE_URL + 'labels/?filter',
                     headers: {
-                        Authorization: 'Bearer' + sessionStorage['token']
+                        Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
 

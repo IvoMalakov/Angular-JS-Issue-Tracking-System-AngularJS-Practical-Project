@@ -14,7 +14,7 @@ issueTrackerSystem.controller('UserController', [
             $scope.showForm = !$scope.showForm;
         };
 
-        $scope.logout = function() {
+        $scope.logout = function logout() {
             userService.logOut()
                 .then(function(data) {
                     notificationService.showInfo('Logout successful', data);
@@ -42,6 +42,10 @@ issueTrackerSystem.controller('UserController', [
                 }, function(error) {
                     notificationService.showError('Password is not changed', error);
                 });
+        };
+
+        $scope.logOutBack = function logOutBack() {
+            $location.path('/projects');
         }
     }
 ]);

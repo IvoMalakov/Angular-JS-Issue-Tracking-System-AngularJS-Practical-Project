@@ -20,7 +20,7 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
             controller: 'DashboardController'
         })
         .when('/profile/password', {
-            tempalteUrl: 'views/user-profile.html'
+            templateUrl: 'views/user-profile.html'
         })
         .when('/logout', {
             templateUrl: 'views/logout.html',
