@@ -25,6 +25,14 @@ h2 {
     margin-bottom: 20px;
 }
 
+div > p {
+    font-size: 25px;
+}
+
 .aquaColor {
     color: aqua;
+}
+
+.logout {
+    margin-top: 20px;
 }

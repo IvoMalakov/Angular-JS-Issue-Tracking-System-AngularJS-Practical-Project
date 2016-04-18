@@ -7,7 +7,7 @@ issueTrackerSystem.factory('authenticationService', [
     function($http, $q, BASE_URL) {
 
         function registerUser(registerUser) {
-            var deffered = $q.defer(),
+            var deferred = $q.defer(),
 
                 userEmail = registerUser.userEmail,
                 password = registerUser.userPassword,
@@ -29,16 +29,16 @@ issueTrackerSystem.factory('authenticationService', [
             $http(request)
                 .then(function(response) {
                     console.log(response.data);
-                    deffered.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    deffered.reject(error);
+                    deferred.reject(error);
                 });
 
-            return deffered.promise;
+            return deferred.promise;
         }
 
         function loginUser(loginUser) {
-            var deffered = $q.defer(),
+            var deferred = $q.defer(),
                 userEmail = loginUser.userEmail,
                 password = loginUser.userPassword,
 
@@ -53,12 +53,12 @@ issueTrackerSystem.factory('authenticationService', [
 
             $http(request)
                 .then(function(response) {
-                    deffered.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    deffered.reject(error);
+                    deferred.reject(error);
                 });
 
-            return deffered.promise;
+            return deferred.promise;
         }
 
         return {

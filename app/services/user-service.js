@@ -5,7 +5,7 @@ issueTrackerSystem.factory('userService',[
     function($http, $q, BASE_URL) {
 
         function getCurrentUser() {
-            var defferd = $q.defer(),
+            var deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
@@ -17,16 +17,16 @@ issueTrackerSystem.factory('userService',[
 
             $http(request)
                 .then(function(response) {
-                    defferd.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    defferd.reject(error);
+                    deferred.reject(error);
                 });
 
-            return defferd.promise;
+            return deferred.promise;
         }
 
         function getAllUsers() {
-            var defferd = $q.defer(),
+            var deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
@@ -38,16 +38,16 @@ issueTrackerSystem.factory('userService',[
 
             $http(request)
                 .then(function(response) {
-                    defferd.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    defferd.reject(error);
+                    deferred.reject(error);
                 });
 
-            return defferd.promise;
+            return deferred.promise;
         }
 
         function makeAdmin(id) {
-            var defferd = $q.defer(),
+            var deferred = $q.defer(),
 
                 request = {
                     method: 'PUT',
@@ -62,16 +62,16 @@ issueTrackerSystem.factory('userService',[
 
             $http(request)
                 .then(function(response) {
-                    defferd.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    defferd.reject(error);
+                    deferred.reject(error);
                 });
 
-            return defferd.promise;
+            return deferred.promise;
         }
 
         function changePassword(user) {
-            var defferd = $q.defer(),
+            var deferred = $q.defer(),
 
                 request = {
                     method: 'POST',
@@ -84,16 +84,16 @@ issueTrackerSystem.factory('userService',[
 
             $http(request)
                 .then(function(response) {
-                    defferd.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    defferd.reject(error);
+                    deferred.reject(error);
                 });
 
-            return defferd.promise;
+            return deferred.promise;
         }
 
         function logOut() {
-            var defferd = $q.defer(),
+            var deferred = $q.defer(),
 
                 request = {
                     method: 'POST',
@@ -105,12 +105,12 @@ issueTrackerSystem.factory('userService',[
 
             $http(request)
                 .then(function(response) {
-                    defferd.resolve(response.data);
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    defferd.reject(error);
+                    deferred.reject(error);
                 });
 
-            return defferd.promise;
+            return deferred.promise;
         }
 
         return {

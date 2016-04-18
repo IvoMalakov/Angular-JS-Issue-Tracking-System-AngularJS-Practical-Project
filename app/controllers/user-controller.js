@@ -8,6 +8,11 @@ issueTrackerSystem.controller('UserController', [
     function($scope, $location, notificationService, userService) {
 
         var id = sessionStorage['Id'];
+        $scope.showForm = false;
+
+        $scope.show = function show() {
+            $scope.showForm = !$scope.showForm;
+        };
 
         $scope.logout = function() {
             userService.logOut()

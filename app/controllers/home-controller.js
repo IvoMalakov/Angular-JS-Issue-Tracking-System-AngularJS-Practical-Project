@@ -16,7 +16,7 @@ issueTrackerSystem.controller('HomeController', [
                     sessionStorage['isAdmin']= currentUser.isAdmin;
 
                     $scope.currentUser = currentUser;
-                    $scope.userName = currentUser.userName;
+                    $scope.userName = currentUser.Username;
                     $scope.isSomeoneLoggedIn = true;
 
                 }, function(error) {
