@@ -4,14 +4,36 @@ issueTrackerSystem.factory('projectService',[
     '$http',
     '$q',
     'BASE_URL',
-    function($http, $q, BASE_URL) {
+    'pageSize',
+    function($http, $q, BASE_URL, pageSize) {
 
-        function getAllProjects() {
+        function getAllProjects(pageNumber) {
             var deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'projects',
+                    url: BASE_URL + 'projects/?filter=&pageSize=' + pageSize + '&pageNumber='+pageNumber,
+                    headers: {
+                        Authorization: 'Bearer ' + sessionStorage['token']
+                    }
+                };
+
+            $http(request)
+                .then(function(response) {
+                    deferred.resolve(response);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        }
+
+        function getMyProjects(lead, pageNumber) {
+            var deferred = $q.defer(),
+
+                request = {
+                    method: 'GET',
+                    url: BASE_URL + 'projects/?filter=Lead.Username.contains("'+lead+'")&pageSize='+pageSize+'&pageNumber='+pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
@@ -128,6 +150,7 @@ issueTrackerSystem.factory('projectService',[
 
         return {
             getAllProjects: getAllProjects,
+            getMyProjects: getMyProjects,
             getProjectById: getProjectById,
             addProject: addProject,
             editProject: editProject,

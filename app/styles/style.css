@@ -33,6 +33,10 @@ div > p {
     margin-left: 30px;
 }
 
+#changePasswordDiv {
+    margin-top: 15px;
+}
+
 .aquaColor {
     color: aqua;
 }

@@ -3,9 +3,11 @@
 issueTrackerSystem.controller('UserController', [
     '$scope',
     '$location',
+    '$window',
+    '$timeout',
     'notificationService',
     'userService',
-    function($scope, $location, notificationService, userService) {
+    function($scope, $location, $window, $timeout, notificationService, userService) {
 
         var id = sessionStorage['Id'];
         $scope.showForm = false;
@@ -19,6 +21,11 @@ issueTrackerSystem.controller('UserController', [
                 .then(function(data) {
                     notificationService.showInfo('Logout successful', data);
                     sessionStorage.clear();
+
+                    $timeout(function () {
+                        $window.location.reload(false);
+                    }, 500);
+
                     $location.path('/');
 
                 }, function(error) {
@@ -45,7 +52,7 @@ issueTrackerSystem.controller('UserController', [
         };
 
         $scope.logOutBack = function logOutBack() {
-            $location.path('/projects');
+            $location.path('/dashboard');
         }
     }
 ]);

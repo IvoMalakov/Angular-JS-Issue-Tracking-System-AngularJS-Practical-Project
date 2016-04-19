@@ -2,7 +2,28 @@ issueTrackerSystem.factory('issueService', [
     '$http',
     '$q',
     'BASE_URL',
-    function($http, $q, BASE_URL) {
+    'pageSize',
+    function($http, $q, BASE_URL, pageSize) {
+
+        function getMyIssues(pageNumber) {
+            var deferred = $q.defer(),
+                request = {
+                    method: 'GET',
+                    url: BASE_URL + 'issues/me?orderBy=DueDate desc, IssueKey&pageSize=' + pageSize + '&pageNumber=' + pageNumber,
+                    headers: {
+                        Authorization: 'Bearer ' + sessionStorage['token']
+                    }
+                };
+
+            $http(request)
+                .then(function(response) {
+                    deferred.resolve(response);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        }
 
         function getIssuesByProjectId(id) {
             var deferred = $q.defer(),
@@ -86,11 +107,11 @@ issueTrackerSystem.factory('issueService', [
             return deferred.promise;
         }
 
-        function getIssues(priorityName, pageNumber) {
+        function getIssues(pageNumber) {
             var deferred = $q.defer(),
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'Issues/?filter=Assignee.Username == "ala@abv.bg"&pageSize='+ pageNumber + '&pageNumber=1',
+                    url: BASE_URL + 'issues/?filter=&pageSize=' + pageSize + '&pageNumber=' + pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
@@ -110,7 +131,7 @@ issueTrackerSystem.factory('issueService', [
             var deferred = $q.defer(),
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'Issues/' + id + 'Comments',
+                    url: BASE_URL + 'Issues/' + id + '/Comments',
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
@@ -127,13 +148,38 @@ issueTrackerSystem.factory('issueService', [
 
         }
 
+        function addComment(text, id) {
+            var deferred = $q.defer(),
+                request = {
+                    method: 'POST',
+                    url: BASE_URL + 'Issues/' + id + '/Comments',
+                    data: {
+                        text: text
+                    },
+                    headers: {
+                        Authorization: 'Bearer ' + sessionStorage['token']
+                    }
+                };
+
+            $http(request)
+                .then(function(response) {
+                    deferred.resolve(response);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        }
+
         return {
+            getMyIssues: getMyIssues,
             getIssuesByProjectId: getIssuesByProjectId,
             addIssue : addIssue,
             editIssue : editIssue,
             getIssueById : getIssueById,
             getIssues : getIssues,
-            getCommentsByIssueId : getCommentsByIssueId
+            getCommentsByIssueId : getCommentsByIssueId,
+            addComment: addComment
         }
     }
 ]);

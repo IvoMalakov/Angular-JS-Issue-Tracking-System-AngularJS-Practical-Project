@@ -1,4 +1,53 @@
 <div profile-directive></div>
 
-<div ng-controller="UserController"></div>
-<h2>Do you want to change your password?</h2>
+<div ng-controller="UserController">
+    <h2>Do you want to change your password?</h2>
+
+    <div>
+        <p>Press <span class="text-danger">"Change Password"</span> key if you want to change your password</p>
+    </div>
+
+    <div>
+        <p>Press <span class="text-primary">"Back"</span> key if you want to go back to your Dashboard</p>
+    </div>
+
+    <br/>
+    <button class="btn btn-danger btn-group-lg" ng-click="show()">Change Password</button>
+    <button type = "submit"  id="logoutBackBtn" class=" btn btn-primary" ng-click="logOutBack()">Back</button>
+
+    <div class="row" ng-show="showForm" id="changePasswordDiv">
+        <div class="col-md-4 col-md-offset-1 border">
+            <form name="changePasswordForm">
+                <label for="oldPassword">Old Password</label>
+                <input type="password"
+                       required="required"
+                       ng-model="user.oldPassword"
+                       id="oldPassword"
+                       class="form-control form-group"
+                       placeholder="Old Password" />
+
+                <label for="newPassword">New Password</label>
+                <input type="password"
+                       required="required"
+                       ng-model="user.newPassword"
+                       id="newPassword"
+                       class="form-control form-group"
+                       placeholder="New Password" />
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password"
+                       required="required"
+                       ng-model="user.confirmPassword"
+                       id="confirmPassword"
+                       class="form-control form-group"
+                       placeholder="Confirm Password" />
+
+                <br/>
+                <button type="submit"
+                        class="btn btn-primary"
+                        ng-disabled="changePasswordForm.$invalid || user.newPassword!=user.confirmPassword"
+                        ng-click="changePassword(user)">Change</button>
+            </form>
+        </div>
+    </div>
+</div>
