@@ -2,6 +2,72 @@
     <div class="col-md-12">
         <div class="row">
             <h1>Dashboards</h1>
+            <div profile-directive></div>
+            <a href="#/add">
+                <button class="btn btn-default" ng-if="">Add new projects /Admin only/</button>
+            </a>
+        </div>
+
+        <div class="jumbotron col-md-12">
+            <table>
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Lead</th>
+                    <th>Discription</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="project in allProjects">
+                    <td>{{$index + 1}}</td>
+                    <td><a href="#/projects/projects.Id">{{project.Name}}</a></td>
+                    <td>{{project.Author.UserName}}</td>
+                    <td>{{project.Lead.UserName}}</td>
+                    <td>{{project.Discription}}</td>
+                    <td>
+                        <a href="#/projects/projects.Id">
+                            <button class="btn btn-sm">view</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="jumbotron col-md-12">
+            <thead>
+            <tr>
+                <th>Number</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Assigne</th>
+                <th>For Project</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="issue in myIssues">
+                <td>{{$index + 1}}</td>
+                <td>{{issue.Title}}</td>
+                <td>{{issue.Author.UserName}}</td>
+                <td>{{issue.Assigne.UserName}}</td>
+                <td>
+                    <a href="#/projects/{{issue.Project.Id}}">
+                        {{issue.Project.Name}}
+                    </a>
+                </td>
+                <td>{{issue.Status.Name}}</td>
+                <td>
+                    <a href="#/issues/{{issue.Id}}">
+                        <button class="btn btn-sm">view</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
         </div>
     </div>
 </div>

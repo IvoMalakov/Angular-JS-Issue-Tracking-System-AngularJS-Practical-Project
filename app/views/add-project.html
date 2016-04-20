@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 border">
+        
+        <form name="addProjectForm">
+            <label for="addProjectName">Name</label>
+            <input type="text"
+                   ng-model="project.Name"
+                   id="addProjectName"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="Name" />
+
+            <label for="addProjectDescription">Description</label>
+            <textarea rows="5"
+                      ng-model="project.Description"
+                      id="addProjectDescription"
+                      class="form-control form-group"
+                      required="required"
+                      placeholder="Description">
+            </textarea>
+
+            <label for="addProjectKey">ProjectKey</label>
+            <input type="text"
+                   ng-model="project.ProjectKey"
+                   id="addProjectKey"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="ProjectKey" />
+
+            <label for="addProjectPriorities">Priorities multiple select:</label>
+            <div>
+                <select name="priorities"
+                        ng-model="project.priorities"
+                        id="addProjectPriorities"
+                        multiple>
+                    <option value="Low">Low</option>
+                    <option value="Normal">Normal</option>
+                    <option value="High">High</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+            </div>
+
+            <label for="addId">Lead of project:</label>
+            <div>
+                <select name="addId"
+                        ng-model="project.LeadId"
+                        id="addId"
+                        required = "required">
+                    <option ng-repeat="user in allUsers | orderBy:'Username'"
+                            value="{{user.Id}}">{{user.UserName}}</option>
+                </select>
+
+                <div>
+                    <label for="addLabel">Label</label>
+                    <div>
+                        <input name="namesInput"
+                               id="addLabel"
+                               required="required"
+                               ng-model="project.labels"
+                               ng-list />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <button type="submit"
+                    class="btn btn-primary"
+                    ng-disabled="addProjectForm.$invalid"
+                    ng-click="addProject(project)">Add Project</button>
+        </form>
+    </div>
+</div>

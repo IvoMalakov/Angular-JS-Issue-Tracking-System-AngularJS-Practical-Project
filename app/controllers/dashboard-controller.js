@@ -14,7 +14,7 @@ issueTrackerSystem.controller('DashboardController', [
             return item.Lead.userName === sessionStorage['userName'];
         };
 
-        var userName = authorizationService.getLoggedUser(),
+        var userName = authorizationService.getLoggedUserName(),
             pageNumber = 1;
 
         projectService.getMyProjects(userName, pageNumber)

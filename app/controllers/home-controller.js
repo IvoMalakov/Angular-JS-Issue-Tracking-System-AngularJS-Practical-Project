@@ -43,7 +43,6 @@ issueTrackerSystem.controller('HomeController', [
                     notificationService.showInfo('Logged successful');
                     sessionStorage['token'] = loggedInUser.access_token;
                     getCurrentUserInfo();
-                    $location.path('/projects');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);

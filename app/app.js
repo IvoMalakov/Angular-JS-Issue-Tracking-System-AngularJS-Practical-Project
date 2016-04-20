@@ -29,6 +29,13 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
                 requireLogin: true
             }
         })
+        .when('/add', {
+            templateUrl: 'views/add-project.html',
+            controller: 'AddProjectController',
+            data: {
+                requireLogin: true
+            }
+        })
         .when('/profile/password', {
             templateUrl: 'views/user-profile.html',
             data: {
