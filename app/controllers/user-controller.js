@@ -9,7 +9,6 @@ issueTrackerSystem.controller('UserController', [
     'userService',
     function($scope, $location, $window, $timeout, notificationService, userService) {
 
-        var id = sessionStorage['Id'];
         $scope.showForm = false;
 
         $scope.show = function show() {
@@ -52,7 +51,7 @@ issueTrackerSystem.controller('UserController', [
         };
 
         $scope.logOutBack = function logOutBack() {
-            $location.path('/dashboard');
+            $location.path('/projects');
         }
     }
 ]);

@@ -12,6 +12,15 @@
     <h1>Welcome to our Issue Tracking System</h1>
 </header>
 
+<div class="row logo" ng-controller="HomeController">
+    <a href="#projects">
+        <div class="col-md-3" id="logo-angular"><img src="images/angular-logo.png" alt="Angular-Logo">
+        </div>
+    </a>
+
+<div class="container text-center" ng-controller="HomeController">
+</div>
+
 <div class="container">
     <div ng-view></div>
 </div>
@@ -44,5 +53,9 @@
 <script type="text/javascript" src="services/issue-service.js"></script>
 
 <script type="text/javascript" src="directives/profile-directive.js"></script>
+<script type="text/javascript" src="directives/priority-directive.js"></script>
+
+<script type="text/javascript" src="filters/highLight-filter.js"></script>
+<script type="text/javascript" src="filters/isAdmin-filter.js"></script>
 </body>
 </html>

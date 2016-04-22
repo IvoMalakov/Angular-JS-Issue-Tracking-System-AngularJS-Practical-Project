@@ -3,10 +3,12 @@
 issueTrackerSystem.controller('HomeController', [
     '$scope',
     '$location',
+    '$window',
     'authenticationService',
+    'authorizationService',
     'notificationService',
     'userService',
-    function($scope, $location, authenticationService, notificationService, userService) {
+    function($scope, $location, $window, authenticationService, authorizationService, notificationService, userService) {
 
         var getCurrentUserInfo = function() {
             userService.getCurrentUser()
@@ -16,13 +18,15 @@ issueTrackerSystem.controller('HomeController', [
                     sessionStorage['isAdmin']= currentUser.isAdmin;
 
                     $scope.currentUser = currentUser;
-                    $scope.userName = currentUser.Username;
-                    $scope.isSomeoneLoggedIn = true;
+                    $scope.username = currentUser.Username;
+                    $location.path('/projects');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
                 });
         };
+
+        $scope.userData = authorizationService;
 
         $scope.login = function login(user) {
             authenticationService.loginUser(user)
@@ -30,7 +34,6 @@ issueTrackerSystem.controller('HomeController', [
                     notificationService.showInfo('Logged successful');
                     sessionStorage['token'] = loggedInUser.access_token;
                     getCurrentUserInfo();
-                    $location.path('/projects');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
@@ -41,8 +44,7 @@ issueTrackerSystem.controller('HomeController', [
             authenticationService.registerUser(user)
                 .then(function(loggedInUser) {
                     notificationService.showInfo('Logged successful');
-                    sessionStorage['token'] = loggedInUser.access_token;
-                    getCurrentUserInfo();
+                    $scope.login(user);
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);

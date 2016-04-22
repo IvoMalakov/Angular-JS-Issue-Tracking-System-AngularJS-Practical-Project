@@ -15,16 +15,23 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/register.html',
             controller: 'HomeController'
         })
-        .when('/dashboard', {
-            templateUrl: 'views/dashboard.html',
-            controller: 'DashboardController',
+        .when('/projects', {
+            templateUrl: 'views/projects.html',
+            controller: 'ProjectsController',
             data: {
                 requireLogin: true
             }
         })
-        .when('/projects', {
-            templateUrl: 'views/projects.html',
-            controller: 'ProjectsController',
+        .when('/projects/:id', {
+            templateUrl: 'views/project-details.html',
+            controller: 'ProjectDetailController',
+            data: {
+                requireLogin: true
+            }
+        })
+        .when('/projects/:edit', {
+            templateUrl: 'views/edit-project.html',
+            controller: 'ProjectDetailController',
             data: {
                 requireLogin: true
             }
@@ -76,10 +83,12 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
 issueTrackerSystem.constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
 issueTrackerSystem.constant('pageSize', 5);
 
-//issueTrackerSystem.run(function($location, $rootScope, authenticationService) {
-//    $rootScope.on('$rootChangeStart', function(event, next) {
-//        if (!authenticationService.isLoggedUser() && next.data.requireLogin) {
-//            $location.path('/');
-//        }
-//    })
-//});
+issueTrackerSystem.run(function($location, $rootScope, authorizationService) {
+    $rootScope.$on('$rootChangeStart', function(event, next) {
+        if (next.data) {
+            if (!authorizationService.isLoggedUser() && next.data.requireLogin) {
+                $location.path('/');
+            }
+        }
+    })
+});

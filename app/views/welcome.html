@@ -1,12 +1,4 @@
-<h2>You are still not logged in. Please log in or register to the system</h2>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#/welcome">Issue Tracking System</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="#/login">Login</a></li>
-            <li><a href="#/register">Register</a></li>
-        </ul>
-    </div>
-</nav>
+<div ng-cloak>
+    <div ng-include="'views/templates/mainPageNotLogged.html'" ng-if="!userData.isLoggedUser()"></div>
+    <div ng-include="'views/templates/mainPageLoggedUser.html'" ng-if="userData.isLoggedUser()"></div>
+</div>

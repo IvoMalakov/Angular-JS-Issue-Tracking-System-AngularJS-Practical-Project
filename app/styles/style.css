@@ -41,12 +41,37 @@ div > p {
     margin-top: 15px;
 }
 
+#logo-angular > img {
+    width: 50px;
+    margin-left: 680px;
+}
+
 .aquaColor {
     color: aqua;
 }
 
+.page-header {
+    padding-left: 20px;
+    color: rgba(0, 0, 0, 0.63);
+}
+
+.jumbotron {
+    padding: 5px;
+}
+
+.searchBox {
+    border: 1px solid gainsboro;
+    box-shadow: 2px -2px 2px #888888;
+    margin: 10px 0 10px 0;
+    padding: 5px;
+}
+
 .logout {
     margin-top: 20px;
+}
+
+.lowreg {
+    margin-top: 40px;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
