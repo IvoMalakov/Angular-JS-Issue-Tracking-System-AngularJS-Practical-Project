@@ -51,7 +51,7 @@ issueTrackerSystem.controller('UserController', [
         };
 
         $scope.logOutBack = function logOutBack() {
-            $location.path('/projects');
+            $location.path('/dashboard');
         }
     }
 ]);

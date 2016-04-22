@@ -19,7 +19,7 @@ issueTrackerSystem.controller('HomeController', [
 
                     $scope.currentUser = currentUser;
                     $scope.username = currentUser.Username;
-                    $location.path('/projects');
+                    $location.path('/dashboard');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
