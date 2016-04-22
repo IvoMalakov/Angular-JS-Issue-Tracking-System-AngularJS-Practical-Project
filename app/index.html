@@ -5,7 +5,7 @@
     <title>Issue Tracking System – AngularJS Practical Project</title>
     <link type="text/css" rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.css" />
-    <link type="text/css" rel="stylesheet" href="styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <header>
@@ -13,16 +13,16 @@
 </header>
 
 <div class="row logo" ng-controller="HomeController">
-    <a href="#projects">
-        <div class="col-md-3" id="logo-angular"><img src="images/angular-logo.png" alt="Angular-Logo">
-        </div>
-    </a>
+    <div class="col-md-3" id="logo-angular">
+        <img src="images/angular-logo.png" alt="Angular-Logo">
+    </div>
 
-<div class="container text-center" ng-controller="HomeController">
-</div>
+    <div class="container text-center" ng-controller="HomeController">
+    </div>
 
-<div class="container">
-    <div ng-view></div>
+    <div class="container">
+        <div ng-view></div>
+    </div>
 </div>
 
 <script type="text/javascript" src="libs/jquery/jquery.js"></script>
@@ -32,30 +32,30 @@
 <script type="text/javascript" src="libs/angular/angular-route.js"></script>
 <script type="text/javascript" src="libs/angular/angular-resource.js"></script>
 
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
-<script type="text/javascript" src="controllers/home-controller.js"></script>
-<script type="text/javascript" src="controllers/user-controller.js"></script>
-<script type="text/javascript" src="controllers/common-controller.js"></script>
-<script type="text/javascript" src="controllers/dashboard-controller.js"></script>
-<script type="text/javascript" src="controllers/projects-controller.js"></script>
-<script type="text/javascript" src="controllers/projectDetail-controller.js"></script>
-<script type="text/javascript" src="controllers/addProject-controller.js"></script>
-<script type="text/javascript" src="controllers/issue-controller.js"></script>
-<script type="text/javascript" src="controllers/addIssue-controller.js"></script>
-<script type="text/javascript" src="controllers/editIssue-controller.js"></script>
+<script type="text/javascript" src="js/controllers/home-controller.js"></script>
+<script type="text/javascript" src="js/controllers/user-controller.js"></script>
+<script type="text/javascript" src="js/controllers/common-controller.js"></script>
+<script type="text/javascript" src="js/controllers/dashboard-controller.js"></script>
+<script type="text/javascript" src="js/controllers/projects-controller.js"></script>
+<script type="text/javascript" src="js/controllers/projectDetail-controller.js"></script>
+<script type="text/javascript" src="js/controllers/addProject-controller.js"></script>
+<script type="text/javascript" src="js/controllers/issue-controller.js"></script>
+<script type="text/javascript" src="js/controllers/addIssue-controller.js"></script>
+<script type="text/javascript" src="js/controllers/editIssue-controller.js"></script>
 
-<script type="text/javascript" src="services/authentication-service.js"></script>
-<script type="text/javascript" src="services/authorization-service.js"></script>
-<script type="text/javascript" src="services/notification-service.js"></script>
-<script type="text/javascript" src="services/user-service.js"></script>
-<script type="text/javascript" src="services/project-service.js"></script>
-<script type="text/javascript" src="services/issue-service.js"></script>
+<script type="text/javascript" src="js/services/authentication-service.js"></script>
+<script type="text/javascript" src="js/services/authorization-service.js"></script>
+<script type="text/javascript" src="js/services/notification-service.js"></script>
+<script type="text/javascript" src="js/services/user-service.js"></script>
+<script type="text/javascript" src="js/services/project-service.js"></script>
+<script type="text/javascript" src="js/services/issue-service.js"></script>
 
-<script type="text/javascript" src="directives/profile-directive.js"></script>
-<script type="text/javascript" src="directives/priority-directive.js"></script>
+<script type="text/javascript" src="js/directives/profile-directive.js"></script>
+<script type="text/javascript" src="js/directives/priority-directive.js"></script>
 
-<script type="text/javascript" src="filters/highLight-filter.js"></script>
-<script type="text/javascript" src="filters/isAdmin-filter.js"></script>
+<script type="text/javascript" src="js/filters/highLight-filter.js"></script>
+<script type="text/javascript" src="js/filters/isAdmin-filter.js"></script>
 </body>
 </html>
