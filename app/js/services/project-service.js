@@ -7,16 +7,37 @@ issueTrackerSystem.factory('projectService',[
     'pageSize',
     function($http, $q, BASE_URL, pageSize) {
 
-        function getAllProjects(pageNumber) {
+        function getAllProjects(params) {
             var deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'projects/?filter=&pageSize=' + pageSize + '&pageNumber='+pageNumber,
+                    url: BASE_URL + 'projects/?filter=&pageSize=' + pageSize + '&pageNumber=' + params.pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
+
+            $http(request)
+                .then(function(response) {
+                    deferred.resolve(response);
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        }
+
+        function getAllProjectsByName(name, pageNumber) {
+            var deferred = $q.defer(),
+
+            request = {
+                method: 'GET',
+                url: BASE_URL + 'projects/?filter=Name.contains("' + name + '")&pageSize=' + pageSize + '&pageNumber=' + pageNumber,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage['token']
+                }
+            };
 
             $http(request)
                 .then(function(response) {
@@ -33,7 +54,7 @@ issueTrackerSystem.factory('projectService',[
 
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'projects/?filter=Lead.Username.contains("'+lead+'")&pageSize='+pageSize+'&pageNumber='+pageNumber,
+                    url: BASE_URL + 'projects/?filter=Lead.Username.contains("' + lead + '")&pageSize=' + pageSize + '&pageNumber=' + pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
@@ -150,6 +171,7 @@ issueTrackerSystem.factory('projectService',[
 
         return {
             getAllProjects: getAllProjects,
+            getAllProjectsByName: getAllProjectsByName,
             getMyProjects: getMyProjects,
             getProjectById: getProjectById,
             addProject: addProject,

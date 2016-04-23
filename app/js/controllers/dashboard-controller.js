@@ -30,7 +30,7 @@ issueTrackerSystem.controller('DashboardController', [
         $scope.projectsPreview = true;
         $scope.issuesPreview = false;
         $scope.showOtherTab = function(tab) {
-            if (tab === 'projects') {
+            if (tab == 'projects') {
                 $scope.projectsPreview = true;
                 $scope.issuesPreview = false;
             } else {

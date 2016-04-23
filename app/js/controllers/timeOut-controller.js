@@ -6,10 +6,10 @@ issueTrackerSystem.controller('TimeOutController', [
     function($scope, $timeout) {
         var delay = 2000;
 
-        $scope.welcomeMessage = true;
+        $scope.showWelcomeMessage = true;
 
         $timeout(function() {
-            $scope.welcomeMessage = false;
+            $scope.showWelcomeMessage = !$scope.showWelcomeMessage;
         }, delay);
 
     }

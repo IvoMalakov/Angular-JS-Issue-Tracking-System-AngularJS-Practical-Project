@@ -29,7 +29,7 @@ issueTrackerSystem.factory('issueService', [
             var deferred = $q.defer(),
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'Projects/' + id + 'Issues',
+                    url: BASE_URL + 'Projects/' + id + '/Issues',
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }
@@ -107,11 +107,11 @@ issueTrackerSystem.factory('issueService', [
             return deferred.promise;
         }
 
-        function getIssues(pageNumber) {
+        function getIssues(params) {
             var deferred = $q.defer(),
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'issues/?filter=&pageSize=' + pageSize + '&pageNumber=' + pageNumber,
+                    url: BASE_URL + 'issues/?filter=&pageSize=' + pageSize + '&pageNumber=' + params.pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }

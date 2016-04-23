@@ -39,6 +39,7 @@ issueTrackerSystem.factory('userService',[
             $http(request)
                 .then(function(response) {
                     deferred.resolve(response.data);
+                    var users = response.data;
                 }, function(error) {
                     deferred.reject(error);
                 });
