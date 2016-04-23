@@ -37,7 +37,7 @@ issueTrackerSystem.controller('UserController', [
                 .then(function(data) {
                     notificationService.showInfo('User was made as admin' ,data);
                 }, function(error) {
-                    notificationService.showError('Request failed' + error.statusText);
+                    notificationService.showError('Request failed ' + error.statusText);
                 });
         };
 

@@ -45,6 +45,10 @@ div > p {
     margin-top: 15px;
 }
 
+#becomeAnAdminDiv {
+    margin: 15px 0 15px 560px;
+}
+
 #logo-angular > img {
     width: 50px;
     margin-left: 680px;
@@ -52,6 +56,11 @@ div > p {
 
 .aquaColor {
     color: aqua;
+}
+
+#navbar {
+    margin: 10px;
+    padding-left: 530px;
 }
 
 .page-header {
@@ -68,6 +77,10 @@ div > p {
     box-shadow: 2px -2px 2px #888888;
     margin: 10px 0 10px 0;
     padding: 5px;
+}
+
+.logo {
+    margin: 10px;
 }
 
 .logout {

@@ -1,23 +1,37 @@
 'use strict';
 
 issueTrackerSystem.controller('AddProjectController', [
+    '$http',
     '$scope',
     '$location',
     'projectService',
     'issueService',
     'notificationService',
-    'userService',
-    function($scope, $location, projectService, issueService, notificationService, userService) {
+    function($http, $scope, $location, projectService, issueService, notificationService) {
 
-        var convertData = function(project) {
+        var convertToPureDate = function(project) {
+            var str = project.Name,
+                matches = str.match(/\b(\w)/g),
+                acronym;
+
+            if (!matches) {
+                acronym = str.slice(0, 2);
+            } else {
+                acronym = matches.join('');
+            }
+
+            project.ProjectKey = acronym.toUpperCase();
+
             project.labels = toObject(project.labels);
             project.priorities = toObject(project.priorities);
 
-            function  toObject(inputArray) {
+            function toObject(inputArray) {
                 var outputArrayAsJson = [];
 
                 inputArray.forEach(function(element) {
-                    outputArrayAsJson.push({Name: element});
+                    outputArrayAsJson.push({
+                        Name: element
+                    });
                 });
 
                 return outputArrayAsJson;
@@ -26,23 +40,16 @@ issueTrackerSystem.controller('AddProjectController', [
             return project;
         };
 
-        $scope.addProject = function(object) {
-            object = convertData(object);
+        $scope.addProject = function(project, id) {
+            project = convertToPureDate(project);
 
-            projectService.addProject(object)
+            projectService.addProject(project)
                 .then(function() {
                     notificationService.showInfo('Project added successful');
                     $location.path('/projects');
                 }, function(error) {
                     notificationService.showError('"Add Project" failed', error.statusText);
                 });
-        };
-
-        var getAllUsers = userService.getAllUsers()
-            .then(function(resolve) {
-                $scope.allUsers = resolve.data;
-            }, function(error) {
-                notificationService.showError('Request failed', error.statusText);
-            });
+        }
     }
 ]);

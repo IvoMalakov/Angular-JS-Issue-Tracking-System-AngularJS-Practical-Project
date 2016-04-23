@@ -1,7 +1,7 @@
 <h2 class="page-header">Add Project</h2>
 
 <div class="row logreg">
-    <div class="col-md-4 col-md-offset-1 border">
+    <div class="col-md-4 col-md-offset-1">
         
         <form name="addProjectForm">
             <label for="addProjectName">Name</label>
@@ -60,7 +60,7 @@
                         id="addId"
                         required = "required">
                     <option ng-repeat="user in allUsers | orderBy:'Username'"
-                            value="{{user.Id}}">{{user.UserName}}</option>
+                            value="{{user.Id}}">{{user.Username}}</option>
                 </select>
 
                 <div>

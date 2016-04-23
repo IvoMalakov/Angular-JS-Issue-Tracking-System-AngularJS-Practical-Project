@@ -1,6 +1,10 @@
 'use strict';
 
-var issueTrackerSystem = angular.module('issueTrackerSystem', ['ngRoute']);
+var issueTrackerSystem = angular.module('issueTrackerSystem', [
+    'ngRoute',
+    'ui.bootstrap',
+    'ui.bootstrap.pagination'
+]);
 
 issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
     $routeProvider
