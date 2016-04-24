@@ -40,7 +40,7 @@ issueTrackerSystem.controller('AddProjectController', [
             return project;
         };
 
-        $scope.addProject = function(project, id) {
+        $scope.addProject = function(project) {
             project = convertToPureDate(project);
 
             projectService.addProject(project)

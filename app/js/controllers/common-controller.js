@@ -18,7 +18,7 @@ issueTrackerSystem.controller('CommonController', [
         var filter = function(users, val) {
           var filtered = [];
             angular.forEach(users, function(item) {
-                if (item.UserName.toLowerCase().indexOf(val) === 0) {
+                if (item.Username.toLowerCase().indexOf(val) === 0) {
                     filtered.push(item);
                 }
             });
@@ -30,6 +30,7 @@ issueTrackerSystem.controller('CommonController', [
             userService.getAllUsers()
                 .then(function(response) {
                     $scope.allUsers = filter(response, val);
+                    console.log($scope.allUsers);
                 }, function(error) {
                     notificationService.showError('Request failed', error.statusText);
                 });

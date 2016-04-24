@@ -13,7 +13,6 @@ issueTrackerSystem.controller('HomeController', [
         var getCurrentUserInfo = function() {
             userService.getCurrentUser()
                 .then(function(currentUser) {
-                    console.log(currentUser);
                     sessionStorage['userName'] = currentUser.Username;
                     sessionStorage['userId'] = currentUser.Id;
                     sessionStorage['isAdmin']= currentUser.isAdmin;
