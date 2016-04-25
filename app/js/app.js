@@ -33,7 +33,7 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
                 requireLogin: true
             }
         })
-        .when('/projects/:edit', {
+        .when('/projects/:id/edit', {
             templateUrl: 'views/edit-project.html',
             controller: 'ProjectDetailController',
             data: {

@@ -54,8 +54,20 @@ div > p {
     margin-left: 680px;
 }
 
+#projectMenageButtons {
+    padding: 10px;
+}
+
 .aquaColor {
     color: aqua;
+}
+
+.red {
+    color: red;
+}
+
+.purple {
+    color: purple;
 }
 
 #navbar {

@@ -17,7 +17,7 @@ issueTrackerSystem.factory('authorizationService', [function() {
     }
 
     function isAdmin() {
-        if (sessionStorage['isAdmin'] === 'true') {
+        if (sessionStorage['isAdmin'] == 'true') {
             return true;
         } else {
             return false;

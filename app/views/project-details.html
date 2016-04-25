@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header"><strong class="aquaColor">Project page</strong></h2>
+        <div class="row profileInfo">
+            <div class="col-md-4">
+                <span ng-if="isLeader">You are <strong class="red">Lead</strong> of this project</span>
+                <span ng-if="isAssignee">You are <strong class="red">Assignee</strong> of this issue</span>
+                <p ng-if="admin"> You are <strong class="red">Admin</strong></p>
+
+                <div id="projectMenageButtons">
+                    <a href="#/projects/{{project.Id}}/edit" ng-if="admin">
+                        <button class="btn btn-info btn-group-lg">EDIT PROJECT</button>
+                    </a>
+
+                    <a href="#/projects/{{project.Id}}/add-issue" ng-if="isLeader || admin">
+                        <button class="btn btn-primary btn-group-lg">ADD ISSUE</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <p>
+                        Project name: <strong class="purple">{{project.Name}}</strong>,
+                        Project Id: <strong class="purple">{{project.Id}}</strong>,
+                        Project Key: <strong class="purple">{{project.ProjectKey}}</strong>
+                    </p>
+                    <a ng-click="showDescript()">{{showDescriptionText}}</a>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <label for="as">Assignees</label>
+                <select ng-model="assignee">
+                    <option ng-repeat="as in assignees" id="as">{{as}}</option>
+                </select>
+            </div>
+        </div>
+
+        <p ng-show="showDescription">Project description: {{project.Description}}</p>
+
+        <h3>Isssues</h3>
+        <div class="jumbotron row">
+            <table class="table table-striped table-hover">
+                <thead>
+                <th>Title</th>
+                <th>Description</th>
+                <th>DueDate</th>
+                <th>Assigne</th>
+                <th>Status</th>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="issue in issuesById | filter: assignee">
+                    <td>
+                        <a href="#/issues/{{issue.Id}}/edit">{{issue.Title}}</a>
+                    </td>
+                    <td>{{issue.Description}}</td>
+                    <td>{{issue.DueDate}}</td>
+                    <td>{{issue.Assignee.Username}}</td>
+                    <td>{{issue.Status.Name}}</td>
+                    <td>
+                        <a href="#/issues/{{issue.Id}}"><button>INFO</button></a>
+                    </td>
+                    <td>
+                        <a href="#/issues/{{issue.Id}}/edit" ng-if="admin || isLeader"><button>EDIT</button></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

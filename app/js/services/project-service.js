@@ -134,7 +134,7 @@ issueTrackerSystem.factory('projectService',[
                         'LeadId' : project.LeadId
                     },
                     headers: {
-                        Authorization: 'Bearer' + sessionStorage['token']
+                        Authorization: 'Bearer ' + sessionStorage['token']
                     }
                 };
 
