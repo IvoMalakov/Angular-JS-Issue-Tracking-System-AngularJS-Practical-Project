@@ -58,6 +58,15 @@ div > p {
     padding: 10px;
 }
 
+#editIssueButton {
+    margin-top: 10px;
+}
+
+#navbar {
+    margin: 10px;
+    padding-left: 530px;
+}
+
 .aquaColor {
     color: aqua;
 }
@@ -68,11 +77,6 @@ div > p {
 
 .purple {
     color: purple;
-}
-
-#navbar {
-    margin: 10px;
-    padding-left: 530px;
 }
 
 .page-header {
@@ -99,7 +103,7 @@ div > p {
     margin-top: 20px;
 }
 
-.lowreg {
+.logreg {
     margin-top: 40px;
 }
 

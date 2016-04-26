@@ -1,33 +1,34 @@
-<h2 class="page-header"><strong class="aquaColor">ADD Issue for project
-    <a href="#/projects/{{projectId}}"> with Id: {{projectId}}</a></strong>
-</h2>
+<h2 class="page-header"><strong class="aquaColor">EDIT Issue</strong></h2>
 
 <div class="row logreg">
     <div class="col-md-4 col-md-offset-4">
-        <form name="addIssueForm">
-            <label for="addIssueTitle">Title</label>
-            <input type="text"
-                   id="addIssueTitle"
-                   class="form-control form-group"
-                   required="required"
-                   placeholder="Title"
-                   ng-model="issue.Title" />
+        <form name="editIssueForm">
 
-            <label for="addIssueDescription">Description</label>
+            <label for="editIssueTitle">Title</label>
+            <input type="text"
+                   id="editIssueTitle"
+                   class="form-control form-group"
+                   placeholder="Title"
+                   required="required"
+                   ng-model="issue.Title"
+                   ng-value= "issue.Title" />
+
+            <label for="editIssueDescription">Description</label>
             <textarea rows="5"
-                      id="addIssueDescription"
+                      id="editIssueDescription"
                       class="form-control form-group"
                       required="required"
                       placeholder="Description"
                       ng-model="issue.Description"></textarea>
 
-            <label for="addIssueDate">Due Date</label>
+            <label for="editIssueDate">Due Date</label>
             <input type="text"
-                   id="addIssueDate"
+                   id="editIssueDate"
                    class="form-control form-group"
-                   required="required"
                    placeholder="mm/dd/yyyy"
-                   ng-model="issue.DueDate" />
+                   required="required"
+                   ng-model="issue.DueDate"
+                   ng-value="issue.DueDate" />
 
             <div>
                 <label for="priorityId">Priority: </label>
@@ -36,19 +37,19 @@
                             required="required"
                             ng-controller="ProjectDetailController"
                             ng-model="issue.PriorityId">
-                        <option value="{{priority.Id}}" ng-repeat="priority in priorities | orderBy:'Name'">{{priority.Name}}</option>
+                        <option value="{{issue.Priority.Id}}">{{issue.Priority.Name}}</option>
                     </select>
                 </div>
             </div>
 
-            <div  class="searchBox" ng-controller="CommonController">
-                <label for="searchName"> Get name of user from Assignee input </label><br/>
+            <div class="searchBox" ng-controller="CommonController">
+                <label for="searchName">Get name of user from Assignee input</label>
                 <input type="text"
-                       ng-model="val"
                        id="searchName"
-                       placeholder="Name of user" />
+                       placeholder="Name of user"
+                       ng-model="val" />
                 <button class="btn btn-info"
-                        ng-click="getAllUsers(val)"> Search by name</button>
+                        ng-click="getAllUsers(val)">Search by name</button>
 
                 <label for="addAssigneeId"> Assignee: </label>
                 <div>
@@ -59,20 +60,26 @@
             </div>
 
             <div>
-                <label for="addLabel">Label</label>
+                <label for="editLabel">Label</label>
                 <div>
                     <input name="namesInput"
-                           id="addLabel"
+                           id="editLabel"
                            required="required"
                            ng-model="issue.Labels"
                            ng-list />
                 </div>
             </div>
 
-            <button type="submit"
-                    class="btn btn-primary"
-                    ng-disabled="addIssueForm.$invalid"
-                    ng-click="addIssue(issue)">Add Issue</button>
+            <div id="editIssueButton">
+                <a href="#/issues/{{issue.Id}}">
+                    <button class="btn btn-primary pull-right">Cancel</button>
+                </a>
+
+                <button type="submit"
+                        class="btn btn-danger"
+                        ng-disabled="editIssueForm.$invalid"
+                        ng-click="editIssue(issue)">Edit Issue</button>
+            </div>
         </form>
     </div>
 </div>
