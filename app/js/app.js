@@ -67,7 +67,7 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
                 requireLogin: true
             }
         })
-        .when('/issues/:id/add-issue', {
+        .when('/projects/:id/add-issue', {
             templateUrl: 'views/add-issue.html',
             controller: 'AddIssueController',
             data: {
