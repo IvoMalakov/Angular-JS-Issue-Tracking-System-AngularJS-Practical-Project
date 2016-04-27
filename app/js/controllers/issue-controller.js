@@ -7,7 +7,7 @@ issueTrackerSystem.controller('IssueController',[
     'issueService',
     'notificationService',
     'projectService',
-    'authorisationService',
+    'authorizationService',
     'statusService',
     function($scope, $location, $routeParams, issueService, notificationService, projectService, authorizationService, statusService) {
 
@@ -52,7 +52,7 @@ issueTrackerSystem.controller('IssueController',[
 
         $scope.addComment = function addComment(text) {
             issueService.addComment(text, issueId)
-                .then(function (response) {
+                .then(function () {
                     notificationService.showInfo('Comment added successful');
                     $location.path('/issues');
                 }, function (error) {
@@ -64,15 +64,15 @@ issueTrackerSystem.controller('IssueController',[
             var outputArrayAsJson = [],
                 inputArraySize = inputArray.length,
                 i;
-            for (i = 0; i < inputArraySize; i++) {
+            for (i = 0; i < inputArraySize; ++i) {
                 outputArrayAsJson.push({'Name': inputArray[i]});
             }
 
             return outputArrayAsJson;
         };
 
-        getIssueById($routeParams.id);
-        getCommentsByIssueId($routeParams.id);
+        getIssueById(issueId);
+        getCommentsByIssueId(issueId);
 
         function aviableStatus(id) {
             var statuses = [];
@@ -107,7 +107,7 @@ issueTrackerSystem.controller('IssueController',[
         }
 
         $scope.changeStatus = function changeStatus(statusId) {
-            statusService.getStatus(issueId, statusId)
+            statusService.changeStatus(issueId, statusId)
                 .then(function() {
                     notificationService.showInfo('Status changed');
                 }, function(error) {

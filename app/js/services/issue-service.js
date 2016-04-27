@@ -111,7 +111,7 @@ issueTrackerSystem.factory('issueService', [
             var deferred = $q.defer(),
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'issues/?filter=&pageSize=' + pageSize + '&pageNumber=' + params.pageNumber,
+                    url: BASE_URL + 'issues/?filter=&pageSize=' + params.pageSize + '&pageNumber=' + params.pageNumber,
                     headers: {
                         Authorization: 'Bearer ' + sessionStorage['token']
                     }

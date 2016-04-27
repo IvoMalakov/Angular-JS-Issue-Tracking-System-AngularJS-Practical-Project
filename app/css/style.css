@@ -51,11 +51,7 @@ div > p {
 
 #logo-angular > img {
     width: 50px;
-    margin-left: 680px;
-}
-
-#projectMenageButtons {
-    padding: 10px;
+    margin-left: 512px;
 }
 
 #editIssueButton {
@@ -64,7 +60,11 @@ div > p {
 
 #navbar {
     margin: 10px;
-    padding-left: 530px;
+    padding-left: 360px;
+}
+
+#addCommentForm {
+    margin: 30px;
 }
 
 .aquaColor {
@@ -79,6 +79,10 @@ div > p {
     color: purple;
 }
 
+.gainsboro {
+    background-color: gainsboro;
+}
+
 .page-header {
     padding-left: 20px;
     color: rgba(0, 0, 0, 0.63);
@@ -86,6 +90,14 @@ div > p {
 
 .jumbotron {
     padding: 5px;
+}
+
+.navbar-brand {
+    font-size: 150%;
+}
+
+.twoButtons a {
+    margin: 10px;
 }
 
 .searchBox {

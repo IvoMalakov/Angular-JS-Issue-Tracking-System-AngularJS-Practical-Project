@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-12">
-        <h2 class="page-header"><strong class="aquaColor">Project page</strong></h2>
+        <h2 class="page-header"><strong class="aquaColor text-uppercase">Project page</strong></h2>
         <div class="row profileInfo">
             <div class="col-md-4">
                 <span ng-if="isLeader">You are <strong class="red">Lead</strong> of this project</span>
                 <span ng-if="isAssignee">You are <strong class="red">Assignee</strong> of this issue</span>
                 <p ng-if="admin"> You are <strong class="red">Admin</strong></p>
 
-                <div id="projectMenageButtons">
+                <div class="twoButtons">
                     <a href="#/projects/{{project.Id}}/edit" ng-if="admin">
                         <button class="btn btn-info btn-group-lg">EDIT PROJECT</button>
                     </a>
